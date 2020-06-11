@@ -21,6 +21,7 @@ public class StartFrame extends JFrame {
 	public StartFrame(String titel, JPanel layoutPanel) {
 		super(titel);
 		this.add(layoutPanel);
+		this.setBackground(Color.decode("#30332E"));
 		URL imgURL = getClass().getResource("/images/wand.jpg");
 		Image image = Toolkit.getDefaultToolkit().createImage(imgURL);
 		this.setIconImage(image);

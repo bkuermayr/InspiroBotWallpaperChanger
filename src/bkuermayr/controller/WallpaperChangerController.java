@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import bkuermayr.model.WallpaperChanger;
+import bkuermayr.view.NiceGuiPanel;
 import bkuermayr.view.StartFrame;
 import bkuermayr.view.WallpaperChangerPanel;
 
@@ -19,10 +20,10 @@ import bkuermayr.view.WallpaperChangerPanel;
 public class WallpaperChangerController implements ActionListener {
 	private WallpaperChanger model;
 	private JFrame frame;
-	private WallpaperChangerPanel view;
+	private NiceGuiPanel view;
 	
 	public WallpaperChangerController () {
-		this.view = new WallpaperChangerPanel(this);
+		this.view = new NiceGuiPanel(this);
 		this.frame = new StartFrame("InspiroBotWallpaperChanger",this.view);
 
 	}
