@@ -1,9 +1,8 @@
-package bkuermayr;
+package bkuermayr.controller;
 
-import java.io.IOException;
 import java.util.Timer;
-
 import javax.swing.JOptionPane;
+import bkuermayr.model.InspiroBotDesktop;
 
 public class Main {
 	public static void main (String[] args) {

@@ -1,4 +1,4 @@
-package bkuermayr;
+package bkuermayr.model;
 
 import java.io.*;
 import java.net.*;
