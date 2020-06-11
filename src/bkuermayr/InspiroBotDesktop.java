@@ -13,13 +13,11 @@ public class InspiroBotDesktop extends TimerTask {
 	
 	private void clear() {
 		this.images.removeAll(this.images);
-		
-	    File[] files = new File("./resource").listFiles();
-	    if(files !=null) {
-	        for(File f: files) {
-	        	f.delete();
-	        }
-	    }
+        String property = "java.io.tmpdir";
+        String destName = System.getProperty(property)+"/wallpaper.jpg";
+
+	    File file = new File(destName);
+	    file.delete();
 	}
 	
 	private void loadImages() {
@@ -64,12 +62,14 @@ public class InspiroBotDesktop extends TimerTask {
 	
 	public void saveImage(String imageUrl) throws IOException {
 		URL url = new URL(imageUrl);
-		String fileName = url.getFile();
-		String destName = "./resource" + fileName.substring(fileName.lastIndexOf("/"));
 
+        String property = "java.io.tmpdir";
+        String destName = System.getProperty(property)+"/wallpaper.jpg";
+
+		
 		System.out.println(destName);
 		InputStream is = url.openStream();
-		OutputStream os = new FileOutputStream(destName);
+		OutputStream os = new FileOutputStream(destName.toString());
 		byte[] b = new byte[2048];
 		int length;
 		while ((length = is.read(b)) != -1) {
@@ -78,11 +78,8 @@ public class InspiroBotDesktop extends TimerTask {
 		is.close();
 		os.close();
 		
-		File file = new File("getabsolutepath.txt");
-		String absolutePath = file.getAbsolutePath().replace("getabsolutepath.txt", "") + "resource" + fileName.substring(fileName.lastIndexOf("/"));
-		System.out.println(absolutePath);
 
-		WallpaperChanger.change(absolutePath);
+		WallpaperChanger.change(destName);
 	}
 
 	@Override
