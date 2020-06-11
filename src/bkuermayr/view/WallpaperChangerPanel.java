@@ -56,10 +56,9 @@ public class WallpaperChangerPanel extends JPanel {
 	    this.stop.setActionCommand("stop");
 	    this.stop.setFont(p);
 	    this.stop.addActionListener(control);
-	    buttons.add(this.stop);
 	    main.add(buttons);
 
-	    JLabel instructions2 = new JLabel("Close window to run program in background.");
+	    JLabel instructions2 = new JLabel("Close window to terminate program.");
 	    instructions2.setBorder(BorderFactory.createMatteBorder(15,0,0,0,new Color(238,238,238)));
 	    instructions2.setFont(d);
 	    this.add(main,BorderLayout.CENTER);
