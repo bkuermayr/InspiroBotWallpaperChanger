@@ -26,7 +26,7 @@ public class NiceGuiPanel extends JPanel {
 
 	public NiceGuiPanel (WallpaperChangerController control) {
 		this.setBackground(Color.decode("#30332E"));
-		this.setBorder(BorderFactory.createEmptyBorder(50,50,50,50));
+		this.setBorder(BorderFactory.createEmptyBorder(50,30,50,30));
 		this.setLayout(new BorderLayout());
 		
 		JPanel main = new JPanel();
