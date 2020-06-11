@@ -5,14 +5,14 @@ import java.net.*;
 import java.util.*;
 
 public class InspiroBotDesktop extends TimerTask {
-	private Set<String> images;
+	private String image;
 	
 	public InspiroBotDesktop() {
-		this.images = new TreeSet<>();
+		this.image = "";
 	}
 	
 	private void clear() {
-		this.images.removeAll(this.images);
+		this.image = "";
         String property = "java.io.tmpdir";
         String destName = System.getProperty(property)+"/wallpaper.jpg";
 
@@ -22,23 +22,13 @@ public class InspiroBotDesktop extends TimerTask {
 	
 	private void loadImages() {
 		this.clear();
-
-		int amount = 1;
-		while(this.images.size() < amount) {
-			try {
-				String img = this.getImage();
-				this.images.add(img);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
 		
-		for(String imageUrl: this.images) {
-			try {
-				this.saveImage(imageUrl);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+		try {
+			this.image = this.getImage();
+			this.saveImage(this.image);
+		} catch (IOException e) {
+			e.printStackTrace();
+			this.loadImages();
 		}
 	}
 	
