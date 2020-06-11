@@ -24,7 +24,7 @@ public class StartFrame extends JFrame {
 		URL imgURL = getClass().getResource("/images/wand.jpg");
 		Image image = Toolkit.getDefaultToolkit().createImage(imgURL);
 		this.setIconImage(image);
-		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.pack();
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
